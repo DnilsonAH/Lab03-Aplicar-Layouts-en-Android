@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -52,10 +54,12 @@ class MainActivity : ComponentActivity() {
 fun GreetingCard() {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
+
         Text(
             text = "Bienvenido al curso!",
             fontSize = 28.sp,
@@ -72,26 +76,40 @@ fun GreetingCard() {
             text = "Hola, estudiante!😎💻",
             fontSize = 20.sp
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = { /* Simulación de acción */ },
-            modifier = Modifier
-                .padding(0.dp)
-                .border(2.dp, Color.Black, RoundedCornerShape(8.dp)),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Blue,
-                contentColor = MaterialTheme.colorScheme.onPrimary
-            ),
-            shape = RoundedCornerShape(8.dp),
-            contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
+        Spacer(modifier = Modifier.height(25.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
         ) {
-            Text(
-                text = "Ver Saludo",
-                fontFamily = FontFamily.SansSerif, // Fuente Roboto
-                fontWeight = FontWeight.Bold // Negrita
-            )
+            Button(
+                onClick = { /* Simulación de acción */ },
+                modifier = Modifier
+                    .padding(0.dp)
+                    .border(2.dp, Color.Black, RoundedCornerShape(8.dp)),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Blue,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                ),
+                shape = RoundedCornerShape(8.dp),
+                contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
+            ) {
+                Text("Accept")
+            }
+            Button(
+                onClick = { /* Simulación de acción */ },
+                modifier = Modifier
+                    .padding(0.dp)
+                    .border(2.dp, Color.Black, RoundedCornerShape(8.dp)),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Red,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                ),
+                shape = RoundedCornerShape(8.dp),
+                contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
+            ) {
+                Text("Decline")
+            }
         }
-        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
